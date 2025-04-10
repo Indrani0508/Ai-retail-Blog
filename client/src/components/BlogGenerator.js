@@ -14,9 +14,11 @@ const BlogGenerator = () => {
     setError('');
 
     try {
-      const response = await axios.post('http://localhost:5000/api/blogs/generate', { topic });
+      const API_URL = process.env.REACT_APP_API_URL || 'https://ai-retail-blog-4.onrender.com';
+      const response = await axios.post(`${API_URL}/api/blogs/generate`, { topic });
       setGeneratedBlog(response.data);
     } catch (err) {
+      console.error(err);
       setError('Something went wrong while generating the blog.');
     } finally {
       setLoading(false);

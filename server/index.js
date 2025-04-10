@@ -37,3 +37,4 @@ mongoose.connect(process.env.MONGO_URI)
 app.get('/', (req, res) => {
   res.send('🚀 Retail Blog AI backend is running!');
 });
+
